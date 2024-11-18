@@ -18,7 +18,7 @@ import styled from "@emotion/styled";
 interface Props {
   handleClose: MouseEventHandler<any> | undefined;
   open: boolean;
-  onClose: ModalProps["onClose"];
+  onClose: ()=> void;
 }
 
 interface SideMenu {
@@ -34,6 +34,7 @@ const ModuleButtons: FC<Props> = ({ handleClose, open, onClose }) => {
   const handleSelect = (path: string) => {
     setSelected(path);
     navigate(path);
+    onClose();
   };
 
   return (
@@ -45,6 +46,7 @@ const ModuleButtons: FC<Props> = ({ handleClose, open, onClose }) => {
           mt: "5vh",
           width: "13vw",
           boxSizing: "border-box",
+          backgroundColor: '#fff'
         },
       }}
       variant="persistent"
@@ -52,9 +54,9 @@ const ModuleButtons: FC<Props> = ({ handleClose, open, onClose }) => {
       open={open}
       transitionDuration={500}
     >
-      <Grid container>
+      <Grid container spacing={1}>
         {MesSideMenuData.map((item: SideMenu, index: number) => (
-          <Grid item xs={6} key={item.node}>
+          <Grid item xs={6} key={item.node} sx={{ backgroundColor: '#cecece' }}>
             <IconButton
               onClick={() => handleSelect(item.path)}
               // className={selected === item.path ? "" : ""}
@@ -79,21 +81,3 @@ const ModuleButtons: FC<Props> = ({ handleClose, open, onClose }) => {
 };
 
 export default ModuleButtons;
-
-{
-  /* {MesSideMenuData.map((item: SideMenu, index: number) => ( */
-}
-// <Grid item xs={6} key={item.node}>
-//   <Button
-//     onClick={() => handleSelect(item.path)}
-//     className={selected === item.path ? "" : ""}
-//   >
-//     <Grid container>
-//       <Grid item xs={12} md={12} sm={12}>
-//         <img src={item.icon} alt={item.text} />
-//         <Typography>{item.text}</Typography>
-//       </Grid>
-//     </Grid>
-//   </Button>
-// </Grid>
-// ))}
