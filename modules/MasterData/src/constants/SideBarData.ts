@@ -51,7 +51,7 @@ export const MasterDataSideNavData: IMenuSideBarGroup[] = [
         pageId: 201,
         pageName: "Shifts",
         // icon: <ShiftIcon />,
-        path: "/factorySetup/shifts",
+        path: "/dashboard/masterdata/factorySetup/shifts",
         isEnable: true,
       },
       {
@@ -61,11 +61,11 @@ export const MasterDataSideNavData: IMenuSideBarGroup[] = [
         path: "/work-centers",
         isEnable: false,
       },
-      {
+      {  
         pageId: 203,
         pageName: "Skills",
         // icon: <SkillIcon />,
-        path: "/factorySetup/skills",
+        path: "/dashboard/masterdata/factorySetup/skills",
         isEnable: true,
       },
       {

@@ -29,7 +29,7 @@ export const router = createBrowserRouter(
 
           />
           <Route
-            path="masterdata"
+            path="masterdata/*"
             element={
               <Suspense fallback={<>loading...</>}>
                 <MasterDataApplication />
