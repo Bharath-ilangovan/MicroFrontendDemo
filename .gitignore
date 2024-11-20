@@ -55,3 +55,4 @@ modules/security/dist/
 modules/security/node_modules/
 modules/MasterData/dist/
 modules/MasterData/node_modules/
+modules/MasterData/package-lock.json
