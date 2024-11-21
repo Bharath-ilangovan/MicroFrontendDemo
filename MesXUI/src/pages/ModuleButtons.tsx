@@ -14,69 +14,84 @@ import React, { FC, MouseEventHandler, useState } from "react";
 import { MesSideMenuData } from "../constants/moduleData";
 import { useNavigate, useNavigation } from "react-router-dom";
 import styled from "@emotion/styled";
+import closeIcon from "../assets/closeBtn.svg"
 
 interface Props {
   handleClose: MouseEventHandler<any> | undefined;
   open: boolean;
-  onClose: ()=> void;
+  onClose: () => void;
+  handleSelectModule: (path: string) => void
+  activeModule: string
 }
 
 interface SideMenu {
   text: string;
   icon: string;
+  iconLight: string;
   node: number;
   path: string;
 }
 
-const ModuleButtons: FC<Props> = ({ handleClose, open, onClose }) => {
-  const [selected, setSelected] = useState<undefined | string>(undefined);
-  const navigate = useNavigate();
-  const handleSelect = (path: string) => {
-    setSelected(path);
-    navigate(path);
-    onClose();
-  };
-
+const ModuleButtons: FC<Props> = ({ handleClose, open, onClose, handleSelectModule, activeModule }) => {
+  const [hoveredModule, setHoveredModule] = useState<string | null>(null);
   return (
     <Drawer
       sx={{
-        width: "13vh",
         flexShrink: 0,
         "& .MuiDrawer-paper": {
+          zIndex: 999999,
           mt: "5vh",
-          width: "13vw",
+          width: "15vw",
           boxSizing: "border-box",
-          backgroundColor: '#fff'
+          backgroundColor: '#EAEAEA'
         },
       }}
       variant="persistent"
       anchor="left"
       open={open}
       transitionDuration={500}
-    >
-      <Grid container spacing={1}>
+    ><Stack height={'3.2vh'} sx={{ alignItems: "flex-end", justifyContent: "center" }}><IconButton onClick={onClose} ><img alt="close-btn" style={{ height: '1.5vh', width: '1.5vh' }} src={closeIcon} /></IconButton></Stack>
+      <Grid container spacing={1} pt={'3.2vh'} sx={{ alignItem: 'center', justifyContent: 'center', }}>
         {MesSideMenuData.map((item: SideMenu, index: number) => (
-          <Grid item xs={6} key={item.node} sx={{ backgroundColor: '#cecece' }}>
+          <Grid item key={item.node}>
             <IconButton
-              onClick={() => handleSelect(item.path)}
-              // className={selected === item.path ? "" : ""}
+              onClick={() => handleSelectModule(item.path)}
+              key={index + "-icon-btn-" + item.path}
+              onMouseEnter={() => setHoveredModule(item.path)}
+              onMouseLeave={() => setHoveredModule(null)}
               sx={{
+                width: '13.5vh', height: '13.5vh',
                 display: "flex",
                 flexDirection: "column",
+                borderColor: '#DDDDDD',
+                borderRadius: '0.5vh',
+                backgroundColor: item.path === activeModule ? "#002856" : "#FFF",
+                color: item.path === activeModule ? "#FFF" : "#454545",
                 p: 0,
                 py: 2,
                 px: 2,
-                borderRadius: 0,
+                "&:hover": {
+                  backgroundColor: item.path === activeModule ? "#FFF" : "#002856",
+                  color: item.path !== activeModule ? "#FFF" : "#454545"
+                },
+
               }}
               disableRipple
-            >
-              <img src={item.icon} alt={item.text} />
-              <Typography sx={{ fontSize: "1vh" }}>{item.text}</Typography>
+            >{
+                item.path === activeModule ? <img src={hoveredModule === item.path ? item.icon : item.iconLight} alt={item.text} /> :
+                  <img src={hoveredModule === item.path
+                    ? item.iconLight
+                    : item.icon} alt={item.text} />
+              }
+              <Typography sx={{
+                fontSize: "0.8rem",
+                pt: '0.5vh'
+              }}>{item.text}</Typography>
             </IconButton>
           </Grid>
         ))}
       </Grid>
-    </Drawer>
+    </Drawer >
   );
 };
 

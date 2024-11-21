@@ -1,18 +1,34 @@
 import { Button, Container, Stack, Toolbar } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import { Outlet, useNavigation } from "react-router-dom";
 import ModuleButtons from "./ModuleButtons";
 import MesTitleBar from "../components/MesTitleBar";
+import CDSSideBar from "../components/CDSSideBar/CDSSideBar";
 
-interface Props {}
+interface Props { }
 
 const Home = (props: Props) => {
-  const [open, setOpen] = React.useState<boolean>(false);
+  const [moduleState, setModuleState] = useState<boolean>(false);
+  const [activeModule, setActiveModule] = useState<string>("/dashboard/masterdata");
+  const [sideBarState, setSideBarState] = useState<boolean>(false);
+
+  const handleSideBarToggle = () => {
+    setSideBarState((prev) => !prev);
+  }
+
+  const handleSideBarClose = () => {
+    setSideBarState(false);
+  }
+
+  const handleSelectModule = (path: string) => {
+    setActiveModule(path);
+    setModuleState(false);
+  }
   const handleModuleClick = () => {
-    setOpen(!open);
+    setModuleState((prev) => !prev);
   };
-  const handleClose = () => {
-    setOpen(false);
+  const handleModuleBarClose = () => {
+    setModuleState(false);
   };
 
   return (
@@ -28,12 +44,14 @@ const Home = (props: Props) => {
         moduleOnclick={handleModuleClick}
       />
       <ModuleButtons
-        handleClose={open ? handleClose : handleClose}
-        open={open}
-        onClose={handleClose}
+        handleClose={moduleState ? handleModuleBarClose : handleModuleBarClose}
+        open={moduleState}
+        onClose={handleModuleBarClose}
+        activeModule={activeModule}
+        handleSelectModule={handleSelectModule}
       />
-      <div style={{ marginTop: "5vh", width: "100vw" }}>
-        <Outlet />
+      <div style={{ marginTop: "5vh", width: "100vw", display: 'flex', flexDirection: "row" }}>
+        <CDSSideBar onClick={handleSideBarToggle} onClose={handleSideBarClose} open={sideBarState} /><Outlet />
       </div>
     </React.Fragment>
   );

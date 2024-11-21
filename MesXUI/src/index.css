@@ -3,16 +3,15 @@
   padding: 0;
   box-sizing: border-box;
 }
-
-.container-main {
+body {
   background-color: #f8f7f6;
 }
 
-@media only screen and (min-resolution: 1dppx) {
+/* @media only screen and (min-resolution: 1dppx) {
   body {
     background-color: #fefefe;
   }
-}
+} */
 
 @media only screen and (min-resolution: 4.25dppx) {
   .container-main {
