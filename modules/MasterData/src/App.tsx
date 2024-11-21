@@ -1,16 +1,16 @@
-import React from "react";
-import { RouterProvider } from "react-router-dom";
+
 import "./App.css"
 import { Provider } from "react-redux";
 import { masterDataStore } from "./store/store";
-import MasterDataAppRoutes from "./routes/routes"; // for use in host app
+import SkillsWithStore from "./components/Skills";
 
 interface Props { }
 
 const App = (props: Props) => {
-  return <Provider store={masterDataStore}>
-    <MasterDataAppRoutes />
-  </Provider>
+  return <>
+    <center><h2>Master Data App</h2></center>
+    <SkillsWithStore />
+  </ >
 };
 
 export default App;

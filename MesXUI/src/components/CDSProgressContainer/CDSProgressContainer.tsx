@@ -2,7 +2,7 @@ import { Box, Paper, Stack, Typography, Grid } from "@mui/material";
 import React, { FC, ReactNode } from "react";
 import { useMatches } from "react-router-dom";
 
-import ImageNA from "../../assets/ImageNA.svg";
+import ImageNA from "./ImageNA.svg";
 
 const regex = /\/[^/]*\//g;
 

@@ -7,7 +7,8 @@ const packageJson = require("./package.json");
 module.exports = () => {
   const devConfig = {
     mode: "development",
-    devtool: "inline-source-map",
+    // devtool: "inline-source-map",
+    devtool: "source-map",
     output: {
       publicPath: "http://localhost:3081/",
       filename: "[name].[contenthash].js",
@@ -17,13 +18,16 @@ module.exports = () => {
       historyApiFallback: {
         index: "/",
       },
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+      },
     },
     plugins: [
       new ModuleFederationPlugin({
         name: "MasterData",
         filename: "remoteEntry.js",
         exposes: {
-          "./app": "./src/App.tsx",
+          "./skills": "./src/components/Skills/index.tsx",
         },
         shared: packageJson.dependencies,
       }),

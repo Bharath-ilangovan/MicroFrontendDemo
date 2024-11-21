@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { IMenuSideBarGroup } from "src/types/SideBar";
+import { IMenuSideBarGroup } from "../types/SideBar";
 
 export const MasterDataSideNavData: IMenuSideBarGroup[] = [
   {

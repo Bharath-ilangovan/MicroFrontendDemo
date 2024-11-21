@@ -1,9 +1,9 @@
 import { Grid2, Box, TextField, Button } from '@mui/material'
-import { GridItem } from '../../../components/styledcomponents'
-import { useMasterDataAppDispatch, useMasterDataAppSelector } from '../../../hooks/index'
-import { selectSkills } from '../../../store/features/skills/SkillsSlice'
+import { GridItem } from '../../ui-components/styledcomponents'
+import { useMasterDataAppDispatch, useMasterDataAppSelector } from '../../hooks/index'
+import { selectSkills } from '../../store/features/skills/SkillsSlice'
 import { Suspense, lazy, useEffect, useState } from 'react'
-import { addSkill, getAllSKills } from '../../../store/features/skills/SkillsAPI'
+import { addSkill, getAllSKills } from '../../store/features/skills/SkillsAPI'
 
 const SkillsDataGrid = lazy(() => import('./GetAllSkills'));
 

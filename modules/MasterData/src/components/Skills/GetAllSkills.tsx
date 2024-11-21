@@ -1,6 +1,6 @@
+import { selectSkills } from "../../store/features/skills/SkillsSlice";
+import { useMasterDataAppSelector } from "../../hooks/index";
 
-import { useMasterDataAppSelector } from '../../../hooks/index';
-import { selectSkills } from '../../../store/features/skills/SkillsSlice';
 
 const GetAllSkills = () => {
     const { data } = useMasterDataAppSelector(selectSkills);
