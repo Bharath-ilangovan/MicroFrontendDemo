@@ -51,7 +51,7 @@ const Home = (props: Props) => {
         handleSelectModule={handleSelectModule}
       />
       <div style={{ marginTop: "5vh", width: "100vw", display: 'flex', flexDirection: "row" }}>
-        <CDSSideBar onClick={handleSideBarToggle} onClose={handleSideBarClose} open={sideBarState} /><Outlet />
+        <CDSSideBar onClick={handleSideBarToggle} onClose={handleSideBarClose} open={sideBarState} menus={<></>} /><Outlet />
       </div>
     </React.Fragment>
   );

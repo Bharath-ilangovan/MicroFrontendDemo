@@ -78,13 +78,14 @@ const ModuleButtons: FC<Props> = ({ handleClose, open, onClose, handleSelectModu
               }}
               disableRipple
             >{
-                item.path === activeModule ? <img src={hoveredModule === item.path ? item.icon : item.iconLight} alt={item.text} /> :
+                item.path === activeModule ? <img src={hoveredModule === item.path ? item.icon : item.iconLight} alt={item.text} style={{ height: '4vh', width: '4vh' }} /> :
                   <img src={hoveredModule === item.path
                     ? item.iconLight
-                    : item.icon} alt={item.text} />
+                    : item.icon} alt={item.text} style={{ height: '4vh', width: '4vh' }} />
               }
               <Typography sx={{
-                fontSize: "0.8rem",
+                // fontSize: "0.8rem",
+                fontSize: "1.5vh",
                 pt: '0.5vh'
               }}>{item.text}</Typography>
             </IconButton>

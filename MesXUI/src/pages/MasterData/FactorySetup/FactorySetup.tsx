@@ -11,7 +11,7 @@ const FactorySetup = (props: Props) => {
     return (
         <Stack spacing={2}>
             <CDSProgressContainer icon={undefined} />
-            <Outlet />
+            <Stack sx={{ px: '1vw' }}><Outlet /></Stack>
         </Stack>
     )
 }
