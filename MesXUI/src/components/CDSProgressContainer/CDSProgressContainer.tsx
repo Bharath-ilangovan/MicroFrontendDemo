@@ -55,15 +55,12 @@ const CDSProgressContainer: FC<{
                 >
                     <Typography
                         sx={{
-                            // fontSize: "20px",
-                            // width: "318px",
-                            //   height: "26px",
+
                             color: "#939393",
                             fontWeight: 400,
-                            // border: "1px solid red",
                         }}
-                        // fontSize={{ md: "1.5vh", xl: "1.5vh" }}
                         fontSize={"1.75vh"}
+                        // fontSize={20}
                     >
                         {crumbs[0]?.length > 0
                             ? crumbs[crumbs.length - 2]
@@ -71,14 +68,9 @@ const CDSProgressContainer: FC<{
                     </Typography>
                     <Typography
                         sx={{
-                            // fontSize: "28px",
-                            //   height: "26px",
                             color: "#5C5C5C",
                             fontWeight: 550,
-                            // textTransform: "capitalize",
-                            // border: "1px solid red",
                         }}
-                        // fontSize={{ md: "2vh", xl: "2vh" }}
                         fontSize={"2.5vh"}
                     >
                         {typeof customCrumb === "string"
@@ -93,9 +85,6 @@ const CDSProgressContainer: FC<{
             <Stack
                 sx={{
                     height: "6vh",
-                    // border: "0.1vh solid red",
-                    // flexGrow: "1",
-                    // pt: "0.3vh",
                 }}
                 direction={"row"}
                 spacing={"2.4vh"}

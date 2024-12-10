@@ -1,9 +1,10 @@
-import { Button, Container, Stack, Toolbar } from "@mui/material";
+
 import React, { useState } from "react";
 import { Outlet, useNavigation } from "react-router-dom";
 import ModuleButtons from "./ModuleButtons";
 import MesTitleBar from "../components/MesTitleBar";
 import CDSSideBar from "../components/CDSSideBar/CDSSideBar";
+import { TitleBar } from "CDS"
 
 interface Props { }
 
@@ -33,7 +34,7 @@ const Home = (props: Props) => {
 
   return (
     <React.Fragment>
-      <MesTitleBar
+      <TitleBar
         version={"MES x.0"}
         notification
         info
@@ -41,8 +42,7 @@ const Home = (props: Props) => {
         // profileUserName={data?.username}
         // profileRole={data?.role}
         // profileLogoutOnClick={handleLogout}
-        moduleOnclick={handleModuleClick}
-      />
+        moduleOnclick={handleModuleClick} home={false} />
       <ModuleButtons
         handleClose={moduleState ? handleModuleBarClose : handleModuleBarClose}
         open={moduleState}
@@ -51,7 +51,8 @@ const Home = (props: Props) => {
         handleSelectModule={handleSelectModule}
       />
       <div style={{ marginTop: "5vh", width: "100vw", display: 'flex', flexDirection: "row" }}>
-        <CDSSideBar onClick={handleSideBarToggle} onClose={handleSideBarClose} open={sideBarState} menus={<></>} /><Outlet />
+        <CDSSideBar onClick={handleSideBarToggle} onClose={handleSideBarClose} open={sideBarState} menus={<></>} />
+        <Outlet />
       </div>
     </React.Fragment>
   );

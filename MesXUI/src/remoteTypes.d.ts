@@ -18,3 +18,11 @@ declare module "MasterData/app" {
   const MicrofrontendOne: ComponentType<Props>;
   export default MicrofrontendOne;
 }
+
+
+declare module "@boilertown/react-ui-boilerplate" {
+  import { ComponentType } from "react";
+  interface Props {}
+  const MicrofrontendOne: ComponentType<Props>;
+  export default MicrofrontendOne;
+}

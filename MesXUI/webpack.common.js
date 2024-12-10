@@ -8,6 +8,7 @@ module.exports = {
     modules: [path.resolve(__dirname, "src"), "node_modules"],
     alias: {
       "@types": path.resolve(__dirname, "src/types"), // Adjust based on your folder structure
+      "@CDS": path.resolve(__dirname, "node_modules/CDS/dist/"),
     },
   },
   module: {

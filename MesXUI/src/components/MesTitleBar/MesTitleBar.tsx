@@ -29,22 +29,22 @@ interface IMesTitleBar {
   home?: boolean;
   settingsComponent?: ReactNode;
   settingsOnCLick?:
-    | React.MouseEventHandler<HTMLAnchorElement>
-    | undefined
-    | any;
+  | React.MouseEventHandler<HTMLAnchorElement>
+  | undefined
+  | any;
   homeOnClick?: React.MouseEventHandler<HTMLAnchorElement> | undefined | any;
   moduleOnclick?: React.MouseEventHandler<HTMLAnchorElement> | undefined | any;
   brandlogo?: string | any;
   brandlogoOnClick?:
-    | React.MouseEventHandler<HTMLAnchorElement>
-    | undefined
-    | any;
+  | React.MouseEventHandler<HTMLAnchorElement>
+  | undefined
+  | any;
   brandlogoSx?: SxProps<Theme> | undefined | any;
   profileProps?: any;
   profileLogoutOnClick?:
-    | React.MouseEventHandler<HTMLAnchorElement>
-    | undefined
-    | any;
+  | React.MouseEventHandler<HTMLAnchorElement>
+  | undefined
+  | any;
   profileTooltipTitle?: string;
   profileUserName?: string;
   profileRole?: string;
@@ -79,9 +79,10 @@ const CantierIconVersion = (props: any) => {
       {/* <CantierLogo /> */}
       <img src={CantierIcon} style={{ height: "3.6vh" }} />
       <Typography
-        // mt={"0.5vh"}
-        mt={{ md: "0.5vh", lg: "0.5vh", xl: "0.75vh" }}
-        fontSize={{ md: "1.2rem", lg: "1rem", xl: "0.6rem" }}
+        mt={"0.5vh"}
+        // mt={{ md: "0.5vh", lg: "0.5vh", xl: "0.75vh" }}
+        // fontSize={{ md: "1.2rem", lg: "1rem", xl: "0.6rem" }}
+        fontSize={'2vh'}
         fontWeight={600}
         color="#fff"
       >
@@ -161,7 +162,7 @@ const MesTitleBar: FC<IMesTitleBar> = ({
             username={profileUserName}
             role={profileRole}
             borderColor={profileBorderColor}
-            // sx={{ marginLeft: "16.24px" }}
+          // sx={{ marginLeft: "16.24px" }}
           />
         </Stack>
       </Stack>

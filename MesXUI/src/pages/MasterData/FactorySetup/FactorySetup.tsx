@@ -9,7 +9,7 @@ interface Props {
 
 const FactorySetup = (props: Props) => {
     return (
-        <Stack spacing={2}>
+        <Stack spacing={2} sx={{ width: '100%' }}>
             <CDSProgressContainer icon={undefined} />
             <Stack sx={{ px: '1vw' }}><Outlet /></Stack>
         </Stack>
