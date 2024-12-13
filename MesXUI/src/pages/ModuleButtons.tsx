@@ -19,7 +19,7 @@ interface Props {
   handleClose: MouseEventHandler<any> | undefined;
   open: boolean;
   onClose: () => void;
-  handleSelectModule: (path: string) => void
+  handleSelectModule: (path: any) => void
   activeModule: string
 }
 

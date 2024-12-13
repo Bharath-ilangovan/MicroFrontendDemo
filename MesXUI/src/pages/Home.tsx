@@ -3,12 +3,13 @@ import { Outlet, useNavigate, useNavigation } from "react-router-dom";
 import ModuleButtons from "./ModuleButtons";
 import CDSSideBar from "../components/CDSSideBar/CDSSideBar";
 import { TitleBar } from 'CDS';
+import { selectModuleBasedSideBar } from "../constants/SideBarData";
 
 interface Props { }
 
 const Home = (props: Props) => {
   const [moduleState, setModuleState] = useState<boolean>(false);
-  const [activeModule, setActiveModule] = useState<string>("/dashboard/masterdata");
+  const [activeModule, setActiveModule] = useState<ModuleRoutes>(ModuleRoutes.MasterData);
   const [sideBarState, setSideBarState] = useState<boolean>(false);
 
   const navigate = useNavigate();
@@ -21,7 +22,7 @@ const Home = (props: Props) => {
     setSideBarState(false);
   }
 
-  const handleSelectModule = (path: string) => {
+  const handleSelectModule = (path: ModuleRoutes) => {
     setActiveModule(path);
     setModuleState(false);
   }
@@ -35,7 +36,7 @@ const Home = (props: Props) => {
   useLayoutEffect(() => {
     navigate(activeModule);
     return () => {
-      
+
     };
   }, [])
 
@@ -56,7 +57,7 @@ const Home = (props: Props) => {
         handleSelectModule={handleSelectModule}
       />
       <div style={{ marginTop: "5vh", width: "100vw", display: 'flex', flexDirection: "row" }}>
-        <CDSSideBar onClick={handleSideBarToggle} onClose={handleSideBarClose} open={sideBarState} menus={<></>} />
+        <CDSSideBar onClick={handleSideBarToggle} onClose={handleSideBarClose} open={sideBarState} menus={selectModuleBasedSideBar(activeModule)} />
         <Outlet />
       </div>
     </React.Fragment>

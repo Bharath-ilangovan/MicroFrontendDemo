@@ -24,30 +24,6 @@ module.exports = {
         test: /\.css$/,
         use: ["style-loader", "css-loader"], // Only handle CSS files
       },
-      // {
-      //   test: /\.s?css$/,
-      //   use: [
-      //     "style-loader",
-      //     {
-      //       loader: "css-loader",
-      //       options: {
-      //         url: {
-      //           filter: (url) => {
-      //             if (url.startsWith("data:")) {
-      //               return false;
-      //             }
-      //             return true;
-      //           },
-      //         },
-      //       },
-      //     },
-      //     "sass-loader",
-      //   ],
-      // },
-      // {
-      //   test: /\.svg$/,
-      //   use: ["file-loader"],
-      // },
       {
         test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|eot|ttf|otf)$/,
         use: [
