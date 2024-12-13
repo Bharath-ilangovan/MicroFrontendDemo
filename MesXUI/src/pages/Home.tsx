@@ -1,9 +1,8 @@
 import React, { useLayoutEffect, useState } from "react";
 import { Outlet, useNavigate, useNavigation } from "react-router-dom";
 import ModuleButtons from "./ModuleButtons";
-import CDSSideBar from "../components/CDSSideBar/CDSSideBar";
-import { TitleBar } from 'CDS';
-import { selectModuleBasedSideBar } from "../constants/SideBarData";
+import { SideBar, TitleBar } from 'CDS';
+import { ModuleRoutes, selectModuleBasedSideBar } from "../constants/SideBarData";
 
 interface Props { }
 
@@ -39,7 +38,38 @@ const Home = (props: Props) => {
 
     };
   }, [])
-
+  const exampleData = [
+    {
+      id: 1,
+      color: "",
+      bgColor: "",
+      label: "Process",
+      childMenus: [
+        {
+          id: 1,
+          onClick: () => { },
+          color: "",
+          bgColor: "",
+          label: "Final Mixer Process",
+          icon: undefined,
+          hoverIcon: undefined,
+          activeIcon: undefined,
+          isActive: false,
+        },
+        {
+          id: 2,
+          onClick: () => { },
+          color: "",
+          bgColor: "",
+          label: "Extruder",
+          icon: undefined,
+          hoverIcon: undefined,
+          activeIcon: undefined,
+          isActive: false,
+        },
+      ],
+    },
+  ];
   return (
     <React.Fragment>
       <TitleBar
@@ -57,7 +87,7 @@ const Home = (props: Props) => {
         handleSelectModule={handleSelectModule}
       />
       <div style={{ marginTop: "5vh", width: "100vw", display: 'flex', flexDirection: "row" }}>
-        <CDSSideBar onClick={handleSideBarToggle} onClose={handleSideBarClose} open={sideBarState} menus={selectModuleBasedSideBar(activeModule)} />
+        <SideBar onClick={handleSideBarToggle} onClose={handleSideBarClose} open={sideBarState} menus={selectModuleBasedSideBar(activeModule)} />
         <Outlet />
       </div>
     </React.Fragment>

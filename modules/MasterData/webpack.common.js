@@ -8,7 +8,7 @@ module.exports = {
     modules: [path.resolve(__dirname, "src"), "node_modules"],
     alias: {
       src: path.resolve(__dirname, "src"),
-      "@types": path.resolve(__dirname, "src/types/*"),
+      "@types": path.resolve(__dirname, "src/types/**/*"),
     },
   },
   module: {

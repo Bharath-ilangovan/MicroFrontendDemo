@@ -1,6 +1,21 @@
 import { IMenuList } from "../components/CDSSideBar/CDSSideBar";
 
-const MasterDataSideNavData: IMenuList[] = [
+export enum ModuleRoutes {
+  MasterData = "/dashboard/masterdata",
+  Security = "/dashboard/security",
+  WIP = "/dashboard/WIP",
+  Maintenance = "/dashboard/Maintenance",
+  Inventory = "/dashboard/Inventory",
+  QMS = "/dashboard/QMS",
+  IIOTHub = "/dashboard/IIOTHub",
+  IntegrationManager = "/dashboard/IntegrationManager",
+  FlowManager = "/dashboard/FlowManager",
+  DashboardBuilder = "/dashboard/DashboardBuilder",
+  ARManager = "/dashboard/ARManager",
+  LicenseManager = "/dashboard/LicenseManager",
+}
+
+ const MasterDataSideNavData: IMenuList[] = [
   {
     id: 1,
     color: "",

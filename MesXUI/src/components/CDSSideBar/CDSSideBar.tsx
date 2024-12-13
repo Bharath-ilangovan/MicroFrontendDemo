@@ -79,7 +79,8 @@ const SideBar = (props: ISideBar) => {
                     disableRipple
                     onClick={props.onClick}
                 >
-                    <SideBarIcon />
+                    {/* <SideBarIcon /> */}
+                    <img src={SideBarIcon} />
                 </IconButton>
                 <List disablePadding sx={{ p: 0, bgcolor: props.bgColor || "#EAEAEA" }}>
                     {props.open ? props.menus.map((item: IMenuList, index: number) => (
@@ -133,7 +134,10 @@ const SideBar = (props: ISideBar) => {
                                     disableRipple
                                     disableTouchRipple
                                 >
-                                    <ListItemIcon>{subItem.icon || <DefaultIcon />}</ListItemIcon>
+                                    <ListItemIcon>{subItem.icon ||
+                                        // <DefaultIcon />
+                                        <img src={DefaultIcon} />
+                                    }</ListItemIcon>
                                     <ListItemText primary={subItem.label} />
                                 </ListItemButton>
                             ))}
@@ -149,7 +153,10 @@ const SideBar = (props: ISideBar) => {
                                 height: "5vh",
                                 justifyContent: "center",
 
-                            }}><DefaultIcon /></div>
+                            }}>
+                                <img src={DefaultIcon} />
+                                {/* <DefaultIcon /> */}
+                            </div>
                             {iconMenu.childMenus.map((item: IChildMenuList) =>
                                 <div style={{
                                     display: 'flex',
@@ -159,7 +166,10 @@ const SideBar = (props: ISideBar) => {
                                     height: "5vh",
                                     justifyContent: "center",
 
-                                }}>{item.icon || <DefaultIcon />}</div>
+                                }}>{item.icon ||
+                                    <img src={DefaultIcon} />
+                                        // <DefaultIcon />
+                                    }</div>
                             )}
                         </>
                     )}
