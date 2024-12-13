@@ -12,7 +12,6 @@ import {
 } from "@mui/material";
 import React, { FC, MouseEventHandler, useState } from "react";
 import { MesSideMenuData } from "../constants/moduleData";
-import { useNavigate, useNavigation } from "react-router-dom";
 import styled from "@emotion/styled";
 import closeIcon from "../assets/closeBtn.svg"
 
@@ -20,7 +19,7 @@ interface Props {
   handleClose: MouseEventHandler<any> | undefined;
   open: boolean;
   onClose: () => void;
-  handleSelectModule: (path: string) => void
+  handleSelectModule: (path: any) => void
   activeModule: string
 }
 

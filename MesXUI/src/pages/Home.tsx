@@ -1,37 +1,75 @@
-
-import React, { useState } from "react";
-import { Outlet, useNavigation } from "react-router-dom";
+import React, { useLayoutEffect, useState } from "react";
+import { Outlet, useNavigate, useNavigation } from "react-router-dom";
 import ModuleButtons from "./ModuleButtons";
-import MesTitleBar from "../components/MesTitleBar";
-import CDSSideBar from "../components/CDSSideBar/CDSSideBar";
-import { TitleBar } from "CDS"
+import { SideBar, TitleBar } from 'CDS';
+import { ModuleRoutes, selectModuleBasedSideBar } from "../constants/SideBarData";
 
 interface Props { }
 
 const Home = (props: Props) => {
   const [moduleState, setModuleState] = useState<boolean>(false);
-  const [activeModule, setActiveModule] = useState<string>("/dashboard/masterdata");
+  const [activeModule, setActiveModule] = useState<ModuleRoutes>(ModuleRoutes.MasterData);
   const [sideBarState, setSideBarState] = useState<boolean>(false);
 
+  const navigate = useNavigate();
+
   const handleSideBarToggle = () => {
-    setSideBarState((prev) => !prev);
+    setSideBarState((prev: any) => !prev);
   }
 
   const handleSideBarClose = () => {
     setSideBarState(false);
   }
 
-  const handleSelectModule = (path: string) => {
+  const handleSelectModule = (path: ModuleRoutes) => {
     setActiveModule(path);
     setModuleState(false);
   }
   const handleModuleClick = () => {
-    setModuleState((prev) => !prev);
+    setModuleState((prev: any) => !prev);
   };
   const handleModuleBarClose = () => {
     setModuleState(false);
   };
 
+  useLayoutEffect(() => {
+    navigate(activeModule);
+    return () => {
+
+    };
+  }, [])
+  const exampleData = [
+    {
+      id: 1,
+      color: "",
+      bgColor: "",
+      label: "Process",
+      childMenus: [
+        {
+          id: 1,
+          onClick: () => { },
+          color: "",
+          bgColor: "",
+          label: "Final Mixer Process",
+          icon: undefined,
+          hoverIcon: undefined,
+          activeIcon: undefined,
+          isActive: false,
+        },
+        {
+          id: 2,
+          onClick: () => { },
+          color: "",
+          bgColor: "",
+          label: "Extruder",
+          icon: undefined,
+          hoverIcon: undefined,
+          activeIcon: undefined,
+          isActive: false,
+        },
+      ],
+    },
+  ];
   return (
     <React.Fragment>
       <TitleBar
@@ -39,10 +77,8 @@ const Home = (props: Props) => {
         notification
         info
         settings
-        // profileUserName={data?.username}
-        // profileRole={data?.role}
-        // profileLogoutOnClick={handleLogout}
-        moduleOnclick={handleModuleClick} home={false} />
+        moduleOnclick={handleModuleClick}
+      />
       <ModuleButtons
         handleClose={moduleState ? handleModuleBarClose : handleModuleBarClose}
         open={moduleState}
@@ -51,7 +87,7 @@ const Home = (props: Props) => {
         handleSelectModule={handleSelectModule}
       />
       <div style={{ marginTop: "5vh", width: "100vw", display: 'flex', flexDirection: "row" }}>
-        <CDSSideBar onClick={handleSideBarToggle} onClose={handleSideBarClose} open={sideBarState} menus={<></>} />
+        <SideBar onClick={handleSideBarToggle} onClose={handleSideBarClose} open={sideBarState} menus={selectModuleBasedSideBar(activeModule)} />
         <Outlet />
       </div>
     </React.Fragment>

@@ -7,8 +7,8 @@ module.exports = {
     extensions: [".ts", ".tsx", ".js", ".jsx"],
     modules: [path.resolve(__dirname, "src"), "node_modules"],
     alias: {
-      "@types": path.resolve(__dirname, "src/types"), // Adjust based on your folder structure
-      "@CDS": path.resolve(__dirname, "node_modules/CDS/dist/"),
+      src: path.resolve(__dirname, "src"),
+      "@types": path.resolve(__dirname, "src/types/*"),
     },
   },
   module: {
@@ -21,32 +21,17 @@ module.exports = {
       },
       // css or scss
       {
-        test: /\.s?css$/,
-        use: [
-          "style-loader",
-          {
-            loader: "css-loader",
-            options: {
-              url: {
-                filter: (url) => {
-                  if (url.startsWith("data:")) {
-                    return false;
-                  }
-                  return true;
-                },
-              },
-            },
-          },
-          "sass-loader",
-        ],
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"], // Only handle CSS files
       },
       {
-        test: /\.(png|jpe?g|gif|svg)$/i,
+        test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|eot|ttf|otf)$/,
         use: [
           {
             loader: "file-loader",
             options: {
-              name: "[path][name].[ext]",
+              name: "[name].[hash].[ext]",
+              outputPath: "assets/",
             },
           },
         ],

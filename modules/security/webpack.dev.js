@@ -7,6 +7,7 @@ const packageJson = require("./package.json");
 module.exports = () => {
   const devConfig = {
     mode: "development",
+    devtool: 'eval-source-map',
     output: {
       publicPath: "http://localhost:3082/",
       filename: "[name].[contenthash].js",

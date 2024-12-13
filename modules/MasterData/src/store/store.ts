@@ -1,10 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { skillsSlice } from "./features/skills/SkillsSlice";
+import SkillsSlice from "./features/skills/SkillsSlice";
 import EmployeeSlice from "./features/Employee/EmployeeSlice";
 
 export const masterDataStore = configureStore({
   reducer: {
-    skills: skillsSlice.reducer,
+    skills: SkillsSlice,
     employee: EmployeeSlice,
   },
   devTools: true,

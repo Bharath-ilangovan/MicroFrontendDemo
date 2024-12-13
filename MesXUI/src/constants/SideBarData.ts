@@ -1,156 +1,295 @@
-import { ReactNode } from "react";
-import { IMenuSideBarGroup } from "../types/SideBar";
+import { IMenuList } from "../components/CDSSideBar/CDSSideBar";
 
-export const MasterDataSideNavData: IMenuSideBarGroup[] = [
+export enum ModuleRoutes {
+  MasterData = "/dashboard/masterdata",
+  Security = "/dashboard/security",
+  WIP = "/dashboard/WIP",
+  Maintenance = "/dashboard/Maintenance",
+  Inventory = "/dashboard/Inventory",
+  QMS = "/dashboard/QMS",
+  IIOTHub = "/dashboard/IIOTHub",
+  IntegrationManager = "/dashboard/IntegrationManager",
+  FlowManager = "/dashboard/FlowManager",
+  DashboardBuilder = "/dashboard/DashboardBuilder",
+  ARManager = "/dashboard/ARManager",
+  LicenseManager = "/dashboard/LicenseManager",
+}
+
+ const MasterDataSideNavData: IMenuList[] = [
   {
-    groupId: 1,
-    groupTitle: "Master Data",
-    children: [
+    id: 1,
+    color: "",
+    bgColor: "",
+    label: "Master Data",
+    childMenus: [
       {
-        pageId: 101,
-        pageName: "Employees",
-        // icon: <EmployeeIcon />,
-        path: "/employees",
-        isEnable: false,
+        id: 1,
+        onClick: () => {},
+        color: "",
+        bgColor: "",
+        label: "Employees",
+        icon: undefined,
+        hoverIcon: undefined,
+        activeIcon: undefined,
+        isActive: false,
       },
       {
-        pageId: 102,
-        pageName: "Item Categories",
-        // icon: <ItemCategoryIcon />,
-        path: "/item-categories",
-        isEnable: false,
+        id: 2,
+        onClick: () => {},
+        color: "",
+        bgColor: "",
+        label: "Item Categories",
+        icon: undefined,
+        hoverIcon: undefined,
+        activeIcon: undefined,
+        isActive: false,
       },
       {
-        pageId: 103,
-        pageName: "Item Subcategories",
-        // icon: <ItemSubcategoryIcon />,
-        path: "/item-subcategories",
-        isEnable: false,
+        id: 3,
+        onClick: () => {},
+        color: "",
+        bgColor: "",
+        label: "Item Subcategories",
+        icon: undefined,
+        hoverIcon: undefined,
+        activeIcon: undefined,
+        isActive: false,
       },
       {
-        pageId: 104,
-        pageName: "Item Master",
-        // icon: <ItemMasterIcon />,
-        path: "/item-master",
-        isEnable: false,
+        id: 4,
+        onClick: () => {},
+        color: "",
+        bgColor: "",
+        label: "Item Master",
+        icon: undefined,
+        hoverIcon: undefined,
+        activeIcon: undefined,
+        isActive: false,
       },
       {
-        pageId: 105,
-        pageName: "Accounts",
-        // icon: <AccountIcon />,
-        path: "/accounts",
-        isEnable: false,
+        id: 5,
+        onClick: () => {},
+        color: "",
+        bgColor: "",
+        label: "Accounts",
+        icon: undefined,
+        hoverIcon: undefined,
+        activeIcon: undefined,
+        isActive: false,
       },
     ],
   },
   {
-    groupId: 2,
-    groupTitle: "Factory Setup",
-    children: [
+    id: 2,
+    color: "",
+    bgColor: "",
+    label: "Factory Setup",
+    childMenus: [
       {
-        pageId: 201,
-        pageName: "Shifts",
-        // icon: <ShiftIcon />,
-        path: "/dashboard/masterdata/factorySetup/shifts",
-        isEnable: true,
+        id: 6,
+        onClick: () => {},
+        color: "",
+        bgColor: "",
+        label: "Shifts",
+        icon: undefined,
+        hoverIcon: undefined,
+        activeIcon: undefined,
+        isActive: false,
       },
       {
-        pageId: 202,
-        pageName: "Work Centers",
-        // icon: <WorkCenterIcon />,
-        path: "/work-centers",
-        isEnable: false,
-      },
-      {  
-        pageId: 203,
-        pageName: "Skills",
-        // icon: <SkillIcon />,
-        path: "/dashboard/masterdata/factorySetup/skills",
-        isEnable: true,
+        id: 7,
+        onClick: () => {},
+        color: "",
+        bgColor: "",
+        label: "Work Centers",
+        icon: undefined,
+        hoverIcon: undefined,
+        activeIcon: undefined,
+        isActive: false,
       },
       {
-        pageId: 204,
-        pageName: "Skillsets",
-        // icon: <SkillSetIcon />,
-        path: "/skill-sets",
-        isEnable: false,
+        id: 8,
+        onClick: () => {},
+        color: "",
+        bgColor: "",
+        label: "Skills",
+        icon: undefined,
+        hoverIcon: undefined,
+        activeIcon: undefined,
+        isActive: false,
       },
       {
-        pageId: 205,
-        pageName: "Tool Groups",
-        // icon: <ToolGroupIcon />,
-        path: "/tool-groups",
-        isEnable: false,
+        id: 9,
+        onClick: () => {},
+        color: "",
+        bgColor: "",
+        label: "Skillsets",
+        icon: undefined,
+        hoverIcon: undefined,
+        activeIcon: undefined,
+        isActive: false,
       },
       {
-        pageId: 206,
-        pageName: "Tools",
-        // icon: <ToolIcon />,
-        path: "/tools",
-        isEnable: false,
+        id: 10,
+        onClick: () => {},
+        color: "",
+        bgColor: "",
+        label: "Tool Groups",
+        icon: undefined,
+        hoverIcon: undefined,
+        activeIcon: undefined,
+        isActive: false,
       },
       {
-        pageId: 207,
-        pageName: "Equipment Groups",
-        // icon: <EquipmentGroupIcon />,
-        path: "/equipment-groups",
-        isEnable: false,
+        id: 11,
+        onClick: () => {},
+        color: "",
+        bgColor: "",
+        label: "Tools",
+        icon: undefined,
+        hoverIcon: undefined,
+        activeIcon: undefined,
+        isActive: false,
       },
       {
-        pageId: 208,
-        pageName: "Equipment",
-        // icon: <EquipmentIcon />,
-        path: "/equipment",
-        isEnable: false,
+        id: 12,
+        onClick: () => {},
+        color: "",
+        bgColor: "",
+        label: "Equipment Groups",
+        icon: undefined,
+        hoverIcon: undefined,
+        activeIcon: undefined,
+        isActive: false,
       },
       {
-        pageId: 209,
-        pageName: "Equipment Priority",
-        // icon: <EquipmentPriorityIcon />,
-        path: "/equipment-priority",
-        isEnable: false,
+        id: 13,
+        onClick: () => {},
+        color: "",
+        bgColor: "",
+        label: "Equipment",
+        icon: undefined,
+        hoverIcon: undefined,
+        activeIcon: undefined,
+        isActive: false,
       },
       {
-        pageId: 210,
-        pageName: "Processes",
-        // icon: <ProcessIcon />,
-        path: "/processes",
-        isEnable: false,
+        id: 14,
+        onClick: () => {},
+        color: "",
+        bgColor: "",
+        label: "Equipment Priority",
+        icon: undefined,
+        hoverIcon: undefined,
+        activeIcon: undefined,
+        isActive: false,
       },
       {
-        pageId: 211,
-        pageName: "Production Lines",
-        // icon: <ProductionLineIcon />,
-        path: "/production-lines",
-        isEnable: false,
+        id: 15,
+        onClick: () => {},
+        color: "",
+        bgColor: "",
+        label: "Processes",
+        icon: undefined,
+        hoverIcon: undefined,
+        activeIcon: undefined,
+        isActive: false,
+      },
+      {
+        id: 16,
+        onClick: () => {},
+        color: "",
+        bgColor: "",
+        label: "Production Lines",
+        icon: undefined,
+        hoverIcon: undefined,
+        activeIcon: undefined,
+        isActive: false,
       },
     ],
   },
   {
-    groupId: 3,
-    groupTitle: "Production Configuration",
-    children: [
+    id: 3,
+    color: "",
+    bgColor: "",
+    label: "Production Configuration",
+    childMenus: [
       {
-        pageId: 301,
-        pageName: "Manufacturing Route",
-        // icon: <ManufacturingRouteIcon />,
-        path: "/manufacturing-route",
-        isEnable: false,
+        id: 17,
+        onClick: () => {},
+        color: "",
+        bgColor: "",
+        label: "Manufacturing Route",
+        icon: undefined,
+        hoverIcon: undefined,
+        activeIcon: undefined,
+        isActive: false,
       },
       {
-        pageId: 302,
-        pageName: "Bill Of Materials",
-        // icon: <BillOfMaterialIcon />,
-        path: "/bill-of-materials",
-        isEnable: false,
+        id: 18,
+        onClick: () => {},
+        color: "",
+        bgColor: "",
+        label: "Bill Of Materials",
+        icon: undefined,
+        hoverIcon: undefined,
+        activeIcon: undefined,
+        isActive: false,
       },
       {
-        pageId: 303,
-        pageName: "Product Spec",
-        // icon: <ProductSpecIcon />,
-        path: "/product-spec",
-        isEnable: false,
+        id: 19,
+        onClick: () => {},
+        color: "",
+        bgColor: "",
+        label: "Product Spec",
+        icon: undefined,
+        hoverIcon: undefined,
+        activeIcon: undefined,
+        isActive: false,
       },
     ],
   },
 ];
+
+export const selectModuleBasedSideBar = (params: ModuleRoutes): IMenuList[] => {
+  switch (params) {
+    case ModuleRoutes.MasterData:
+      return MasterDataSideNavData as IMenuList[];
+
+    // case ModuleRoutes.Security:
+    //   return SecuritySideNavData as IMenuList[];
+
+    // case ModuleRoutes.WIP:
+    //   return WIPSideNavData as IMenuList[];
+
+    // case ModuleRoutes.Maintenance:
+    //   return MaintenanceSideNavData as IMenuList[];
+
+    // case ModuleRoutes.Inventory:
+    //   return InventorySideNavData as IMenuList[];
+
+    // case ModuleRoutes.QMS:
+    //   return QMSSideNavData as IMenuList[];
+
+    // case ModuleRoutes.IIOTHub:
+    //   return IIOTHubSideNavData as IMenuList[];
+
+    // case ModuleRoutes.IntegrationManager:
+    //   return IntegrationManagerSideNavData as IMenuList[];
+
+    // case ModuleRoutes.FlowManager:
+    //   return FlowManagerSideNavData as IMenuList[];
+
+    // case ModuleRoutes.DashboardBuilder:
+    //   return DashboardBuilderSideNavData as IMenuList[];
+
+    // case ModuleRoutes.ARManager:
+    //   return ARManagerSideNavData as IMenuList[];
+
+    // case ModuleRoutes.LicenseManager:
+    //   return LicenseManagerSideNavData as IMenuList[];
+
+    default:
+      return MasterDataSideNavData as IMenuList[];
+  }
+};

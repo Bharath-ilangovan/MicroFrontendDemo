@@ -15,6 +15,7 @@ module.exports = () => {
       historyApiFallback: {
         index: "/",
       },
+      hot: true,
     },
     plugins: [
       new ModuleFederationPlugin({

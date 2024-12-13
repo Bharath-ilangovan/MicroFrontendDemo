@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
+    "start:all": "npx concurrently \"npm start\" \"cd ../modules/MasterData && npm start\" \"cd ../modules/security && npm start\"",
     "start": "webpack serve --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
     "clean": "rm -rf dist"
@@ -16,14 +17,19 @@
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "5.16",
     "@mui/material": "5.16",
+<<<<<<< HEAD
     "CDS": "github:Bharath-ilangovan/CDS",
+=======
+    "CDS": "1.0.1",
+>>>>>>> b5288d0d68bba4e3562074e049c58fd66a8426ed
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.14.0"
+    "react-router-dom": "^6.28.0"
   },
   "devDependencies": {
-    "@types/react": "^18.2.8",
+    "@types/react": "^18.3.16",
     "@types/react-dom": "^18.2.4",
+    "concurrently": "^9.1.0",
     "css-loader": "^6.7.3",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
