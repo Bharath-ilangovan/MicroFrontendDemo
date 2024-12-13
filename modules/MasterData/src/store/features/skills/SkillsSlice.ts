@@ -12,7 +12,7 @@ const initialState: ISkills = {
     }
 }
 
-export const skillsSlice = createSlice({
+ const skillsSlice = createSlice({
     name: 'skills',
     initialState: initialState,
     reducers: {
