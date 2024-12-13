@@ -38,38 +38,7 @@ const Home = (props: Props) => {
 
     };
   }, [])
-  const exampleData = [
-    {
-      id: 1,
-      color: "",
-      bgColor: "",
-      label: "Process",
-      childMenus: [
-        {
-          id: 1,
-          onClick: () => { },
-          color: "",
-          bgColor: "",
-          label: "Final Mixer Process",
-          icon: undefined,
-          hoverIcon: undefined,
-          activeIcon: undefined,
-          isActive: false,
-        },
-        {
-          id: 2,
-          onClick: () => { },
-          color: "",
-          bgColor: "",
-          label: "Extruder",
-          icon: undefined,
-          hoverIcon: undefined,
-          activeIcon: undefined,
-          isActive: false,
-        },
-      ],
-    },
-  ];
+ 
   return (
     <React.Fragment>
       <TitleBar

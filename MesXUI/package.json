@@ -17,11 +17,7 @@
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "5.16",
     "@mui/material": "5.16",
-<<<<<<< HEAD
-    "CDS": "github:Bharath-ilangovan/CDS",
-=======
     "CDS": "1.0.1",
->>>>>>> b5288d0d68bba4e3562074e049c58fd66a8426ed
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.28.0"
