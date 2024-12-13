@@ -12,7 +12,6 @@ import {
 } from "@mui/material";
 import React, { FC, MouseEventHandler, useState } from "react";
 import { MesSideMenuData } from "../constants/moduleData";
-import { useNavigate, useNavigation } from "react-router-dom";
 import styled from "@emotion/styled";
 import closeIcon from "../assets/closeBtn.svg"
 

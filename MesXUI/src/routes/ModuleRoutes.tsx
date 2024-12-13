@@ -11,14 +11,27 @@ import Login from "../pages/Login";
 import MasterData from "../pages/MasterData/MasterData";
 import FactorySetup from "../pages/MasterData/FactorySetup/FactorySetup";
 import AuthProvider from "./AuthProvider";
+import ErrorBoundary from "../services/ErrorBoundary";
 
-const SecurityApp = lazy(() => import("SecurityApp/app"));
-const SkillsPage = lazy(() => import("MasterData/skills"));
+const SecurityApp = lazy(() => import("SecurityApp/app").then((x) => x)
+  .catch((err: any) => {
+    console.log("Error loading SecurityApp:", err);
+    throw new Error("Failed to load SecurityApp. Please try again later.");
+  }));
+// const SkillsPage = lazy(() => import("MasterData/skills"));
+const SkillsPage = lazy(() =>
+  import("MasterData/skills")
+    .then((x) => x)
+    .catch((err: any) => {
+      console.log("Error loading SkillsPage:", err);
+      throw new Error("Failed to load SkillsPage. Please try again later.");
+    })
+);
 
 const MasterDataRoute = () => (
   <Route path="masterdata" element={<MasterData />} >
     <Route path="factorysetup" element={<FactorySetup />} handle={{ crumb: () => "Factory Setup" }}>
-      <Route path="skills" element={<Suspense fallback={<h1>Loading...</h1>}><SkillsPage /></Suspense>} handle={{ crumb: () => "Skills" }} />
+      <Route path="skills" element={<ErrorBoundary><Suspense fallback={<h1>Loading...</h1>}><SkillsPage /></Suspense></ErrorBoundary>} handle={{ crumb: () => "Skills" }} />
     </Route>
   </Route>
 );

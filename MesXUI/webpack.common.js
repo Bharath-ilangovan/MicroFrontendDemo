@@ -5,13 +5,28 @@ module.exports = {
   entry: "./src/index.ts",
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".jsx"],
-    modules: [path.resolve(__dirname, "src"), "node_modules"],
+    modules: [
+      path.resolve(__dirname, "src"),
+      "node_modules", // Default modules directory
+      path.resolve("github:Bharath-ilangovan/CDS", "node_modules/CDS/"),
+    ],
     alias: {
-      "@types": path.resolve(__dirname, "src/types"), // Adjust based on your folder structure
+      CDS: path.resolve(__dirname, "node_modules/CDS"), // Alias for CDS
     },
   },
   module: {
     rules: [
+      // CDS
+      {
+        test: /\.m?js$/,
+        include: /node_modules\/CDS/,
+        use: {
+          loader: "babel-loader", // Ensure Babel processes the files
+          options: {
+            presets: ["@babel/preset-env"],
+          },
+        },
+      },
       // typescript file loader
       {
         test: /\.(js|jsx|tsx|ts)$/,

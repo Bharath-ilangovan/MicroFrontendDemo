@@ -1,9 +1,8 @@
-import React, { useState } from "react";
-import { Outlet, useNavigation } from "react-router-dom";
+import React, { useLayoutEffect, useState } from "react";
+import { Outlet, useNavigate, useNavigation } from "react-router-dom";
 import ModuleButtons from "./ModuleButtons";
-import MesTitleBar from "../components/MesTitleBar";
 import CDSSideBar from "../components/CDSSideBar/CDSSideBar";
-import { Button } from 'CDS';
+import { TitleBar } from 'CDS';
 
 interface Props { }
 
@@ -12,8 +11,10 @@ const Home = (props: Props) => {
   const [activeModule, setActiveModule] = useState<string>("/dashboard/masterdata");
   const [sideBarState, setSideBarState] = useState<boolean>(false);
 
+  const navigate = useNavigate();
+
   const handleSideBarToggle = () => {
-    setSideBarState((prev) => !prev);
+    setSideBarState((prev: any) => !prev);
   }
 
   const handleSideBarClose = () => {
@@ -25,22 +26,26 @@ const Home = (props: Props) => {
     setModuleState(false);
   }
   const handleModuleClick = () => {
-    setModuleState((prev) => !prev);
+    setModuleState((prev: any) => !prev);
   };
   const handleModuleBarClose = () => {
     setModuleState(false);
   };
 
+  useLayoutEffect(() => {
+    navigate(activeModule);
+    return () => {
+      
+    };
+  }, [])
+
   return (
     <React.Fragment>
-      <MesTitleBar
+      <TitleBar
         version={"MES x.0"}
         notification
         info
         settings
-        // profileUserName={data?.username}
-        // profileRole={data?.role}
-        // profileLogoutOnClick={handleLogout}
         moduleOnclick={handleModuleClick}
       />
       <ModuleButtons
@@ -52,7 +57,6 @@ const Home = (props: Props) => {
       />
       <div style={{ marginTop: "5vh", width: "100vw", display: 'flex', flexDirection: "row" }}>
         <CDSSideBar onClick={handleSideBarToggle} onClose={handleSideBarClose} open={sideBarState} menus={<></>} />
-        <Button />
         <Outlet />
       </div>
     </React.Fragment>
