@@ -1,9 +1,10 @@
-import React, { useLayoutEffect, useState } from "react";
-import { Outlet, useNavigate, useNavigation } from "react-router-dom";
+import React, { useEffect, useLayoutEffect, useState } from "react";
+import { Outlet, useLocation, useNavigate, useNavigation } from "react-router-dom";
 import ModuleButtons from "./ModuleButtons";
 import { SideBar, TitleBar } from 'CDS';
-import { ModuleRoutes, selectModuleBasedSideBar } from "../constants/SideBarData";
+import { ModuleRoutes } from "../constants/SideBarData";
 import SideBarMenu from "src/services/SideBarMenu/SideBarMenu";
+import useCustomNavigate from "src/hooks/Navigation/useNavigateTo";
 
 interface Props { }
 
@@ -12,7 +13,7 @@ const Home = (props: Props) => {
   const [activeModule, setActiveModule] = useState<ModuleRoutes>(ModuleRoutes.MasterData);
   const [sideBarState, setSideBarState] = useState<boolean>(false);
 
-  const navigate = useNavigate();
+  const navigate = useCustomNavigate();
 
   const handleSideBarToggle = () => {
     setSideBarState((prev: any) => !prev);
@@ -41,6 +42,14 @@ const Home = (props: Props) => {
 
     };
   }, [])
+
+  // change route based on activeModule
+
+  useEffect(() => {
+    // const pathname = useLocation().pathname;
+    navigate(`${activeModule}`)
+
+  }, [activeModule])
 
   return (
     <React.Fragment>

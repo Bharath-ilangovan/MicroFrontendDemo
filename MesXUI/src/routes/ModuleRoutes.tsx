@@ -55,7 +55,7 @@ export const router = createBrowserRouter(
               </Suspense>
             }
           />
-          <Route path="*" element={<h1>Page Not Found SUb</h1>} />
+          <Route path="*" element={<div style={{ height: '90vh', width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', }}><h2>Micro Frontend Not Found</h2></div>} />
         </Route>
       </Route>
       <Route path="*" element={<h1>Page Not Found</h1>} />
