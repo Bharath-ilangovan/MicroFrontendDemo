@@ -256,7 +256,13 @@ export const selectModuleBasedSideBar = (params: ModuleRoutes): IMenuList[] => {
     case ModuleRoutes.MasterData:
       return MasterDataSideNavData as IMenuList[];
 
-    // case ModuleRoutes.Security:
+    default:
+      return MasterDataSideNavData as IMenuList[];
+  }
+};
+
+
+ // case ModuleRoutes.Security:
     //   return SecuritySideNavData as IMenuList[];
 
     // case ModuleRoutes.WIP:
@@ -288,8 +294,3 @@ export const selectModuleBasedSideBar = (params: ModuleRoutes): IMenuList[] => {
 
     // case ModuleRoutes.LicenseManager:
     //   return LicenseManagerSideNavData as IMenuList[];
-
-    default:
-      return MasterDataSideNavData as IMenuList[];
-  }
-};

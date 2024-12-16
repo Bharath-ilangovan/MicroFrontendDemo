@@ -3,6 +3,7 @@ import { Outlet, useNavigate, useNavigation } from "react-router-dom";
 import ModuleButtons from "./ModuleButtons";
 import { SideBar, TitleBar } from 'CDS';
 import { ModuleRoutes, selectModuleBasedSideBar } from "../constants/SideBarData";
+import SideBarMenu from "src/services/SideBarMenu/SideBarMenu";
 
 interface Props { }
 
@@ -31,6 +32,8 @@ const Home = (props: Props) => {
   const handleModuleBarClose = () => {
     setModuleState(false);
   };
+  // dynamic side Bar
+  const menus = SideBarMenu({ params: activeModule });
 
   useLayoutEffect(() => {
     navigate(activeModule);
@@ -38,38 +41,7 @@ const Home = (props: Props) => {
 
     };
   }, [])
-  const exampleData = [
-    {
-      id: 1,
-      color: "",
-      bgColor: "",
-      label: "Process",
-      childMenus: [
-        {
-          id: 1,
-          onClick: () => { },
-          color: "",
-          bgColor: "",
-          label: "Final Mixer Process",
-          icon: undefined,
-          hoverIcon: undefined,
-          activeIcon: undefined,
-          isActive: false,
-        },
-        {
-          id: 2,
-          onClick: () => { },
-          color: "",
-          bgColor: "",
-          label: "Extruder",
-          icon: undefined,
-          hoverIcon: undefined,
-          activeIcon: undefined,
-          isActive: false,
-        },
-      ],
-    },
-  ];
+
   return (
     <React.Fragment>
       <TitleBar
@@ -87,7 +59,7 @@ const Home = (props: Props) => {
         handleSelectModule={handleSelectModule}
       />
       <div style={{ marginTop: "5vh", width: "100vw", display: 'flex', flexDirection: "row" }}>
-        <SideBar onClick={handleSideBarToggle} onClose={handleSideBarClose} open={sideBarState} menus={selectModuleBasedSideBar(activeModule)} />
+        <SideBar onClick={handleSideBarToggle} onClose={handleSideBarClose} open={sideBarState} menus={menus} />
         <Outlet />
       </div>
     </React.Fragment>
