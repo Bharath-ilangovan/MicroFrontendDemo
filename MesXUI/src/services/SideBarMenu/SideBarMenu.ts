@@ -11,7 +11,7 @@ const SideBarMenu = (props: Props): IMenuList[] => {
   const navigate = useCustomNavigate();
   const location = useLocation();
 
-//   console.log(location);
+  //   console.log(location);
 
   const exampleData = [
     {
@@ -141,7 +141,9 @@ const SideBarMenu = (props: Props): IMenuList[] => {
         {
           id: 8,
           onClick: () => {
-            navigate(location?.pathname + "/factorysetup/skills");
+            if (!location.pathname.includes("/factorysetup/skills"))
+              navigate(location?.pathname + "/factorysetup/skills");
+            else navigate(location?.pathname);
           },
           color: "",
           bgColor: "",
