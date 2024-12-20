@@ -65,7 +65,7 @@ const Home = (props: Props) => {
         open={moduleState}
         onClose={handleModuleBarClose}
         activeModule={activeModule}
-        handleSelectModule={handleSelectModule}
+        handleSelectModule={handleSelectModule} 
       />
       <div style={{ marginTop: "5vh", width: "100vw", display: 'flex', flexDirection: "row" }}>
         <SideBar onClick={handleSideBarToggle} onClose={handleSideBarClose} open={sideBarState} menus={menus} />
