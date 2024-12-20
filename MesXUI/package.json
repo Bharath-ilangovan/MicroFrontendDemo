@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "start:all": "npx concurrently \"npm start\" \"cd ../modules/MasterData && npm start\" \"cd ../modules/security && npm start\"",
+    "start:all": "npx concurrently \"npm start\" \"cd ../modules/MasterData && npm start\" \"cd ../modules/security && npm start\" \"cd ../modules/QMS && npm start\"",
     "start": "webpack serve --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
     "clean": "rm -rf dist"
