@@ -8,7 +8,7 @@ module.exports = () => {
   const devConfig = {
     mode: "development",
     // devtool: "inline-source-map",
-    devtool: 'eval-source-map',
+    devtool: "eval-source-map",
     output: {
       publicPath: "http://localhost:3083/",
       filename: "[name].[contenthash].js",
@@ -27,7 +27,8 @@ module.exports = () => {
         name: "QMS",
         filename: "remoteEntry.js",
         exposes: {
-          // "./skills": "./src/components/Skills/index.tsx",
+          "./MRCRelease":
+            "./src/components/QualityManagement/MRCRelease/index.tsx",
         },
         shared: packageJson.dependencies,
       }),

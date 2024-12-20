@@ -12,10 +12,10 @@ module.exports = () => {
     },
     plugins: [
       new ModuleFederationPlugin({
-        name: "MasterData",
+        name: "QMS",
         filename: "remoteEntry.js",
         exposes: {
-          "./app": "./src/App.tsx",
+          "./MRCRelease": "./src/components/QualityManagement/MRCRelease/index.tsx",
         },
         shared: packageJson.dependencies,
       }),
