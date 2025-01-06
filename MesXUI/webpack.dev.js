@@ -23,6 +23,7 @@ module.exports = () => {
         remotes: {
           MasterData: "MasterData@http://localhost:3081/remoteEntry.js",
           SecurityApp: "Security@http://localhost:3082/remoteEntry.js",
+          QMS: "QMS@http://localhost:3083/remoteEntry.js",
         },
         shared: packageJson.dependencies,
       }),

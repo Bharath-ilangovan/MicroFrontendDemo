@@ -18,3 +18,9 @@ declare module "MasterData/app" {
   const MicrofrontendOne: ComponentType<Props>;
   export default MicrofrontendOne;
 }
+declare module "QMS/MRCRelease" {
+  import { ComponentType } from "react";
+  interface Props {}
+  const MicrofrontendOne: ComponentType<Props>;
+  export default MicrofrontendOne;
+}

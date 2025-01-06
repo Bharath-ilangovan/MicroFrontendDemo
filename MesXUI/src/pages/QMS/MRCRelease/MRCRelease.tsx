@@ -1,11 +1,10 @@
-import { Stack } from "@mui/material";
+import { ProgressContainer, Stack } from "CDS";
+import useCurrentRoute from "../../../hooks/Navigation/useCurrentRoute";
 import { Outlet } from "react-router-dom";
-import useCurrentRoute from "src/hooks/Navigation/useCurrentRoute";
-import { ProgressContainer } from "CDS";
 
 interface Props {}
 
-const FactorySetup = (props: Props) => {
+const MRCRelease = (props: Props) => {
   const { label, description } = useCurrentRoute();
   return (
     <Stack spacing={2} width={"100%"}>
@@ -22,4 +21,4 @@ const FactorySetup = (props: Props) => {
   );
 };
 
-export default FactorySetup;
+export default MRCRelease;
