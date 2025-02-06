@@ -1,7 +1,7 @@
 import React, { useEffect, useLayoutEffect, useState } from "react";
 import { Outlet, useLocation, useNavigate, useNavigation } from "react-router-dom";
 import ModuleButtons from "./ModuleButtons";
-import { SideBar, TitleBar } from 'CDS';
+import { MesSideBar,MesTitleBar } from 'CDS';
 import { ModuleRoutes } from "../constants/SideBarData";
 import SideBarMenu from "src/services/SideBarMenu/SideBarMenu";
 import useCustomNavigate from "src/hooks/Navigation/useNavigateTo";
@@ -53,7 +53,7 @@ const Home = (props: Props) => {
 
   return (
     <React.Fragment>
-      <TitleBar
+      <MesTitleBar
         version={"MES x.0"}
         notification
         info
@@ -68,7 +68,7 @@ const Home = (props: Props) => {
         handleSelectModule={handleSelectModule} 
       />
       <div style={{ marginTop: "5vh", width: "100vw", display: 'flex', flexDirection: "row" }}>
-        <SideBar onClick={handleSideBarToggle} onClose={handleSideBarClose} open={sideBarState} menus={menus} />
+        <MesSideBar onClick={handleSideBarToggle} onClose={handleSideBarClose} open={sideBarState} menus={menus} />
         <Outlet />
       </div>
     </React.Fragment>

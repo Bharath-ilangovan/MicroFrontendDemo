@@ -1,4 +1,4 @@
-import { ProgressContainer, Stack } from "CDS";
+import { MesProgressContainer, Stack } from "CDS";
 import useCurrentRoute from "../../../hooks/Navigation/useCurrentRoute";
 import { Outlet } from "react-router-dom";
 
@@ -8,7 +8,7 @@ const MRCRelease = (props: Props) => {
   const { label, description } = useCurrentRoute();
   return (
     <Stack spacing={2} width={"100%"}>
-      <ProgressContainer
+      <MesProgressContainer
         variant={"standard"}
         label={label}
         description={description}

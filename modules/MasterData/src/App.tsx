@@ -10,8 +10,8 @@ interface Props { }
 const App = (props: Props) => {
   return <>
     <center><h2>Master Data App</h2></center>
-    {/* <SkillsWithStore /> */}
-    <EmployeeWithStore />
+    <SkillsWithStore />
+    {/* <EmployeeWithStore /> */}
   </ >
 };
 

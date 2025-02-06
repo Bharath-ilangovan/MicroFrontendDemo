@@ -1,7 +1,7 @@
 import { Stack } from "@mui/material";
 import { Outlet } from "react-router-dom";
 import useCurrentRoute from "src/hooks/Navigation/useCurrentRoute";
-import { ProgressContainer } from "CDS";
+import { MesProgressContainer } from "CDS";
 
 interface Props {}
 
@@ -9,7 +9,7 @@ const FactorySetup = (props: Props) => {
   const { label, description } = useCurrentRoute();
   return (
     <Stack spacing={2} width={"100%"}>
-      <ProgressContainer
+      <MesProgressContainer
         variant={"standard"}
         label={label}
         description={description}
