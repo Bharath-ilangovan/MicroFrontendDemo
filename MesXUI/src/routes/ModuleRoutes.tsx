@@ -22,18 +22,22 @@ const SecurityApp = lazy(() =>
     })
 );
 
-// const SkillsPage = lazy(() => import("MasterData/skills"));
-const SkillsPage = lazy(() =>
+// const SkillsApp = lazy(() => import("MasterData/skills"));
+const SkillsApp = lazy(() =>
   import("MasterData/skills")
     .then((x) => x)
     .catch((err: any) => {
-      console.log("Error loading SkillsPage:", err);
-      throw new Error("Failed to load SkillsPage. Please try again later.");
+      console.log("Error loading SkillsApp:", err);
+      throw new Error("Failed to load SkillsApp. Please try again later.");
     })
 );
 
 // QMS
-// const QMS = lazy(() => import("QMS/MRCRelease"));
+const QMSApp = lazy(() => import("QMS/MRCRelease").then((x) => x)
+  .catch((err: any) => {
+    console.log("Error loading SecurityApp:", err);
+    throw new Error("Failed to load QMS/MRCRelease. Please try again later.");
+  }))
 
 const QMSDataRoute = () => (
   <Route path="QMS" element={<QMS />}>
@@ -41,7 +45,9 @@ const QMSDataRoute = () => (
       path=""
       element={
         <ErrorBoundary>
-          <Suspense fallback={<h1>Loading...</h1>}></Suspense>
+          <Suspense fallback={<h1>Loading...</h1>}>
+            <QMSApp />
+          </Suspense>
         </ErrorBoundary>
       }
     />
@@ -60,7 +66,7 @@ const MasterDataRoute = () => (
         element={
           <ErrorBoundary>
             <Suspense fallback={<h1>Loading...</h1>}>
-              <SkillsPage />
+              <SkillsApp />
             </Suspense>
           </ErrorBoundary>
         }
@@ -85,9 +91,11 @@ export const router = createBrowserRouter(
           <Route
             path="security"
             element={
-              <Suspense fallback={<>loading...</>}>
-                <SecurityApp />
-              </Suspense>
+              <ErrorBoundary>
+                <Suspense fallback={<>loading...</>}>
+                  <SecurityApp />
+                </Suspense>
+              </ErrorBoundary>
             }
           />
           <Route
