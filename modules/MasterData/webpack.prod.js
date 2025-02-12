@@ -15,7 +15,7 @@ module.exports = () => {
         name: "MasterData",
         filename: "remoteEntry.js",
         exposes: {
-          "./app": "./src/App.tsx",
+          "./skills": "./src/components/Skills/index.tsx",
         },
         shared: packageJson.dependencies,
       }),

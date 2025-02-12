@@ -23,7 +23,7 @@ module.exports = () => {
         name: "Security",
         filename: "remoteEntry.js",
         exposes: {
-          "./app": "./src/App",
+          "./app": "./src/App.tsx",
         },
         shared: packageJson.dependencies,
       }),

@@ -1,11 +1,11 @@
 import React from "react";
 import MRCReleaseDataGrid from "./MRCReleaseDataGrid";
 
-interface IMRCRelease {}
+interface IMRCRelease { }
 
 const MRCRelease = (props: IMRCRelease) => {
   return (
-    <div>
+    <div style={{ margin: 10}}>
       <h2>MRCRelease</h2>
       <MRCReleaseDataGrid />
     </div>

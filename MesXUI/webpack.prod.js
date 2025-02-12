@@ -18,6 +18,7 @@ module.exports = () => {
         remotes: {
           MasterData: `MasterData@${domain || ""}/MasterData/remoteEntry.js`,
           SecurityApp: `Security@${domain || ""}/Security/remoteEntry.js`,
+          QMS: `QMS@${domain || ""}/QMS/remoteEntry.js`,
         },
         shared: packageJson.dependencies,
       }),
