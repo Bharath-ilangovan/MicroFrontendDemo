@@ -79,10 +79,10 @@ const MasterDataRoute = () => (
 export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<AuthProvider />}>
-      <Route path="/" element={<Login />} />
+      {/* <Route path="/" element={<Login />} /> */}
       {/* Protected Routes */}
       <Route path="/" element={<ProtectedRoute />}>
-        <Route path="dashboard" element={<Home />}>
+        <Route path="/" element={<Home />}>
           {/* Master Data Routes */}
           {MasterDataRoute()}
           {/* Security Routes */}

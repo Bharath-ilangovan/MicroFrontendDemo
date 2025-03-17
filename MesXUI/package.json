@@ -13,11 +13,6 @@
   "author": "Cantier Systems",
   "license": "MIT",
   "dependencies": {
-    "@emotion/react": "^11.11.0",
-    "@emotion/styled": "^11.11.0",
-    "@mui/icons-material": "5.16",
-    "@mui/material": "5.16",
-    "CDS": "1.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.28.0"
