@@ -55,7 +55,12 @@ modules/security/dist/
 modules/security/node_modules/
 modules/MasterData/dist/
 modules/MasterData/node_modules/
-modules/MasterData/package-lock.json
 
 modules/QMS/dist/
 modules/QMS/node_modules/
+
+modules/CMMS/dist/
+modules/CMMS/node_modules/
+
+modules/IIOT/dist/
+modules/IIOT/node_modules/

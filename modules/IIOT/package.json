@@ -1,7 +1,7 @@
 {
-  "name": "masterdata",
+  "name": "cmms",
   "version": "1.0.0",
-  "description": "productX.0-Master Data",
+  "description": "mfe-cmms",
   "main": "index.ts",
   "scripts": {
     "start": "webpack serve --config webpack.dev.js",

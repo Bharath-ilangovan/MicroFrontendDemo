@@ -7,16 +7,15 @@ module.exports = () => {
   const prodConfig = {
     mode: "production",
     output: {
-      publicPath: "/QMS/",
+      publicPath: "/WIP/",
       filename: "[name].[contenthash].js",
     },
     plugins: [
       new ModuleFederationPlugin({
-        name: "QMS",
+        name: "WIP",
         filename: "remoteEntry.js",
         exposes: {
-          "./MRCRelease":
-            "./src/components/QualityManagement/MRCRelease/index.tsx",
+          
         },
         shared: packageJson.dependencies,
       }),
