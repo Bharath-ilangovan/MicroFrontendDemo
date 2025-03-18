@@ -1,14 +1,15 @@
-import { Text } from '@fluentui/react-components'
-import React from 'react'
-import useCurrentRoute from 'src/hooks/Navigation/useCurrentRoute'
-
+import { Text } from "@fluentui/react-components";
+import React from "react";
+import useCurrentRoute from "src/hooks/Navigation/useCurrentRoute";
+ 
 interface IPageTitleBar {
-
+    imgSrc?: React.ReactNode;
+    description?: string;
 }
-
-const PageTitleBar = () => {
-
-    const { description } = useCurrentRoute();
+ 
+const PageTitleBar: React.FC<IPageTitleBar> = ({ imgSrc, description }) => {
+    const { description: routeDescription } = useCurrentRoute();
+ 
     return (
         <header
             style={{
@@ -20,14 +21,13 @@ const PageTitleBar = () => {
                 gap: "12px",
                 position: "fixed",
                 width: "100%",
-                zIndex: "1000",
-                // marginLeft: "-15px",
+                zIndex: 1000,
                 paddingLeft: "15px",
                 borderBottom: "1px solid #ccc",
                 paddingBottom: "0px",
             }}
         >
-            {/* <Icon
+            <div
                 style={{
                     fontSize: "22px",
                     backgroundColor: "#f1f1f1",
@@ -35,8 +35,10 @@ const PageTitleBar = () => {
                     padding: "5px",
                     borderRadius: "5px",
                     marginTop: "2px",
-                }}
-            /> */}
+                  }}
+            >
+                {imgSrc}
+            </div>
             <Text
                 style={{
                     fontFamily: "sans-serif",
@@ -44,13 +46,14 @@ const PageTitleBar = () => {
                     fontWeight: "bold",
                     marginTop: "8px",
                     color: "#1357A5",
-                }}
+                  }}
             >
-                {description}
+                {description || routeDescription}
             </Text>
-
         </header>
-    )
-}
-
-export default React.memo(PageTitleBar)
+    );
+};
+ 
+export default React.memo(PageTitleBar);
+ 
+ 

@@ -1,18 +1,15 @@
-import React from 'react'
-import { useMatches } from 'react-router-dom';
-import PageTitleBar from 'src/components/PageTitleBar/PageTitleBar'
+import React from "react";
+import {
+	WrenchSettingsRegular,
+} from "@fluentui/react-icons";
+import PageTitleBar from "src/components/PageTitleBar/PageTitleBar";
 
 const Demo = () => {
-    const matches = useMatches();
-    const crumbs = matches
-        .filter((match: any) => Boolean(match.handle?.crumb))
-        .map((match: any) => match.handle.crumb(match.data));
-    return (
-        // <PageTitleBar />
-        <>
-            {JSON.stringify(crumbs)}
-        </>
-    )
-}
+	return (
+		<>
+			<PageTitleBar imgSrc={<WrenchSettingsRegular />} />
+		</>
+	);
+};
 
-export default Demo
+export default Demo;
