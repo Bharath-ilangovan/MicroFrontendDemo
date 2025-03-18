@@ -12,9 +12,8 @@ import FactorySetup from "../pages/MasterData/FactorySetup/FactorySetup";
 import AuthProvider from "./AuthProvider";
 import ErrorBoundary from "../services/ErrorBoundary";
 import QMS from "../pages/QMS/QMS";
-import { parentItem } from "src/services/SideBarMenu/SideBarMenu";
+import { IChildItem, IParentItem, parentItem } from "src/services/SideBarMenu/SideBarMenu";
 import Layout from "src/layouts/Layout";
-import { IChildItem, IParentItem } from "src/layouts/data";
 
 const SecurityApp = lazy(() =>
   import("SecurityApp/app")
