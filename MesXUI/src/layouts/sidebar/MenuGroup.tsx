@@ -3,6 +3,15 @@ import { useNavigate } from "react-router-dom";
 import { CaretDownFilled } from "@fluentui/react-icons";
 import { IChildItem } from "src/services/SideBarMenu/SideBarMenu";
 
+const RenderChildMenuLabel: FC<{ index: number, label: string, onClick: () => void }> = ({ index, onClick, label }) => {
+	return <p
+		key={index}
+		className="sidebar-child-item"
+		onClick={onClick}>
+		{label}
+	</p>
+}
+
 const MenuGroup: FC<{
 	activePath: string;
 	activeLabel: string;
@@ -74,7 +83,7 @@ const MenuGroup: FC<{
 								{children.map(
 									(item: IChildItem, index: number) => (
 										<>
-											{item?.title && (
+											{item.renderChild && (
 												<div
 													style={{
 														display: "flex",
@@ -90,27 +99,21 @@ const MenuGroup: FC<{
 															borderRadius: "5px",
 														}}></div>
 													<p className="sidebar-child-label">
-														{item?.title}
+														{item?.label}
 													</p>
 												</div>
 											)}
-											<p
-												key={index}
-												className="sidebar-child-item"
-												onClick={() =>
-													handleNavigation(item.path)
-												}>
-												{item.label}
-											</p>
+											{item.children && item.children.map((menuItems, indexMenu) => <RenderChildMenuLabel index={indexMenu} label={menuItems.label} onClick={() => handleNavigation(item.path + '/' + menuItems.path)} />)}
+
 										</>
 									),
 								) || (
-									<p
-										key={"-no-label"}
-										className="sidebar-child-item">
-										No Data
-									</p>
-								)}
+										<p
+											key={"-no-label"}
+											className="sidebar-child-item">
+											No Data
+										</p>
+									)}
 							</div>
 						</div>
 					)}

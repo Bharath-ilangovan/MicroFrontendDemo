@@ -241,6 +241,11 @@ const SideBar: FC<ISideBar> = ({ handleCloseSideBar, open }) => {
 								?.children as IChildItem[]
 						}
 					/>
+					{/* activePath - {activePath}
+					activeLabel - {JSON.stringify(parentItem.find((item) => item.path === activePath)
+						?.label as string)} */}
+					{/* {JSON.stringify(parentItem.find((item) => item.path === activePath)
+						?.children as IChildItem[])} */}
 				</div>
 			)}
 		</div>

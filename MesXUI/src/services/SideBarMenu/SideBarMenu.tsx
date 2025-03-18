@@ -6,6 +6,7 @@ import QmsIconFC from "../../assets/sidebar/QmsIconFC";
 import IiotIcon from "../../assets/sidebar/IIOTFC";
 import AiIconFC from "../../assets/sidebar/AiIconFC";
 import Demo from "src/pages/Demo";
+import { Outlet } from "react-router-dom";
 
 // Interface for child items
 export interface IChildItem {
@@ -13,7 +14,7 @@ export interface IChildItem {
 	path: string;
 	page: ReactNode | JSX.Element;
 	children?: IChildItem[];
-	title?: string;
+	renderChild: boolean;
 }
 
 // Interface for parent items
@@ -28,124 +29,139 @@ export interface IParentItem {
 // Child Items (Master)
 const MASTER_ITEMS: IChildItem[] = [
 	{
-		label: "Technician",
-		path: "cmms-setup/technician",
-		page: <h1>Technician</h1>,
-		title:'CMMS Setup'
-	},
-	{
-		label: "Reschedule Reasons",
-		path: "cmms-setup/reschedule-reasons",
-		page: <Demo />,
-	},
-	{
-		label: "Work Order Progress Status",
-		path: "cmms-setup/work-order",
-		page: <h1>Work Order Progress Status</h1>,
-	},
-	{
-		label: "Equipment Problems",
-		path: "equipment-problems",
-		page: <h1>Equipment Problems</h1>,
-	},
-	{
-		label: "Equipment Status",
-		path: "cmms-setup/equipment-status",
-		page: <h1>Equipment Status</h1>,
-	},
-	{
-		label: "Maintenance Definitions",
-		path: "cmms-setup/maintenance-definitions",
-		page: <h1>Maintenance Definitions</h1>,
-	},
-	{
-		label: "Task List",
-		path: "cmms-setup/task-list",
-		page: <h1>Task List</h1>,
-	},
-	{
-		label: "Task Group",
-		path: "cmms-setup/task-group",
-		page: <h1>Task Group</h1>,
-	},
+		label: "CMMS Setup",
+		path: "cmms-setup",
+		page: <Outlet />,
+		renderChild: true,
+		children: [
+			{
+				label: "Technician",
+				path: "technician",
+				page: <h1>Technician</h1>,
+				renderChild: false,
+			},
+			{
+				label: "Reschedule Reasons",
+				path: "reschedule-reasons",
+				page: <Demo />,
+				renderChild: false,
+			},
+			{
+				label: "Work Order Progress Status",
+				path: "work-order",
+				page: <h1>Work Order Progress Status</h1>,
+				renderChild: false,
+			},
+			{
+				label: "Equipment Problems",
+				path: "equipment-problems",
+				page: <h1>Equipment Problems</h1>,
+				renderChild: false,
+			},
+			{
+				label: "Equipment Status",
+				path: "equipment-status",
+				page: <h1>Equipment Status</h1>,
+				renderChild: false,
+			},
+			{
+				label: "Maintenance Definitions",
+				path: "maintenance-definitions",
+				page: <h1>Maintenance Definitions</h1>,
+				renderChild: false,
+			},
+			{
+				label: "Task List",
+				path: "task-list",
+				page: <h1>Task List</h1>,
+				renderChild: false,
+			},
+			{
+				label: "Task Group",
+				path: "task-group",
+				page: <h1>Task Group</h1>,
+				renderChild: false,
+			},
+		]
+	}
 ];
 
 // Child Items (WIP)
-const WIP_ITEMS: IChildItem[] = [
-	{
-		label: "Equipment Setup",
-		path: "equipment-setup",
-		page: <h1>Equipment Setup</h1>,
-	},
-	{
-		label: "Machine Material Setup",
-		path: "machine-material-setup",
-		page: <h1>Machine Material Setup</h1>,
-	},
-	{
-		label: "Equipment Tool Setup",
-		path: "equipment-tool-setup",
-		page: <h1>Equipment Tool Setup</h1>,
-	},
-	{
-		label: "Defects",
-		path: "defects",
-		page: <h1>Defects</h1>,
-	},
-	{
-		label: "Lot Adjustment Reasons",
-		path: "lot-adjustment-reasons",
-		page: <h1>Lot Adjustment Reasons</h1>,
-	},
-	{
-		label: "Hold Codes",
-		path: "hold-codes",
-		page: <h1>Hold Codes</h1>,
-	},
-	{
-		label: "Rework Reasons",
-		path: "rework-reasons",
-		page: <h1>Rework Reasons</h1>,
-	},
-];
-const CMMS_ITEMS: IChildItem[] = [
-	{
-		label: "Machine Material Setup",
-		path: "machine-material-setup",
-		page: <h1>Machine Material Setup</h1>,
-	},
-	{
-		label: "Defects",
-		path: "defects",
-		page: <h1>Defects</h1>,
-	},
-	{
-		label: "Lot Adjustment Reasons",
-		path: "lot-adjustment-reasons",
-		page: <h1>Lot Adjustment Reasons</h1>,
-	},
-	{
-		label: "Equipment Tool Setup",
-		path: "equipment-tool-setup",
-		page: <h1>Equipment Tool Setup</h1>,
-	},
-	{
-		label: "Equipment Setup",
-		path: "equipment-setup",
-		page: <h1>Equipment Setup</h1>,
-	},
+// const WIP_ITEMS: IChildItem[] = [
+// 	{
+// 		label: "Equipment Setup",
+// 		path: "equipment-setup",
+// 		page: <h1>Equipment Setup</h1>,
+// 	},
+// 	{
+// 		label: "Machine Material Setup",
+// 		path: "machine-material-setup",
+// 		page: <h1>Machine Material Setup</h1>,
+// 	},
+// 	{
+// 		label: "Equipment Tool Setup",
+// 		path: "equipment-tool-setup",
+// 		page: <h1>Equipment Tool Setup</h1>,
+// 	},
+// 	{
+// 		label: "Defects",
+// 		path: "defects",
+// 		page: <h1>Defects</h1>,
+// 	},
+// 	{
+// 		label: "Lot Adjustment Reasons",
+// 		path: "lot-adjustment-reasons",
+// 		page: <h1>Lot Adjustment Reasons</h1>,
+// 	},
+// 	{
+// 		label: "Hold Codes",
+// 		path: "hold-codes",
+// 		page: <h1>Hold Codes</h1>,
+// 	},
+// 	{
+// 		label: "Rework Reasons",
+// 		path: "rework-reasons",
+// 		page: <h1>Rework Reasons</h1>,
+// 	},
+// ];
+// const CMMS_ITEMS: IChildItem[] = [
+// 	{
+// 		label: "Machine Material Setup",
+// 		path: "machine-material-setup",
+// 		page: <h1>Machine Material Setup</h1>,
+// 	},
+// 	{
+// 		label: "Defects",
+// 		path: "defects",
+// 		page: <h1>Defects</h1>,
+// 	},
+// 	{
+// 		label: "Lot Adjustment Reasons",
+// 		path: "lot-adjustment-reasons",
+// 		page: <h1>Lot Adjustment Reasons</h1>,
+// 	},
+// 	{
+// 		label: "Equipment Tool Setup",
+// 		path: "equipment-tool-setup",
+// 		page: <h1>Equipment Tool Setup</h1>,
+// 	},
+// 	{
+// 		label: "Equipment Setup",
+// 		path: "equipment-setup",
+// 		page: <h1>Equipment Setup</h1>,
+// 	},
 
-	{
-		label: "Hold Codes",
-		path: "hold-codes",
-		page: <h1>Hold Codes</h1>,
-	},
-	{
-		label: "Rework Reasons",
-		path: "rework-reasons",
-		page: <h1>Rework Reasons</h1>,
-	},
-];
+// 	{
+// 		label: "Hold Codes",
+// 		path: "hold-codes",
+// 		page: <h1>Hold Codes</h1>,
+// 	},
+// 	{
+// 		label: "Rework Reasons",
+// 		path: "rework-reasons",
+// 		page: <h1>Rework Reasons</h1>,
+// 	},
+// ];
 
 // Parent Items
 const parentItem: IParentItem[] = [
@@ -160,14 +176,15 @@ const parentItem: IParentItem[] = [
 		icon: WipIcon,
 		label: "WIP",
 		path: "wip",
-		children: WIP_ITEMS,
+		// children: WIP_ITEMS,
+		children: [],
 		selectedIcon: WipIcon,
 	},
 	{
 		icon: CmmsIconFC,
 		label: "CMMS",
 		path: "cmms",
-		children: CMMS_ITEMS,
+		children: [],
 		selectedIcon: CmmsIconFC,
 	},
 	{
