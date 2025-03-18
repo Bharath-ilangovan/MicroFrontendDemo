@@ -12,6 +12,9 @@ import FactorySetup from "../pages/MasterData/FactorySetup/FactorySetup";
 import AuthProvider from "./AuthProvider";
 import ErrorBoundary from "../services/ErrorBoundary";
 import QMS from "../pages/QMS/QMS";
+import { parentItem } from "src/services/SideBarMenu/SideBarMenu";
+import Layout from "src/layouts/Layout";
+import { IChildItem, IParentItem } from "src/layouts/data";
 
 const SecurityApp = lazy(() =>
   import("SecurityApp/app")
@@ -77,47 +80,71 @@ const MasterDataRoute = () => (
 );
 
 export const router = createBrowserRouter(
-  createRoutesFromElements(
-    <Route path="/" element={<AuthProvider />}>
-      {/* <Route path="/" element={<Login />} /> */}
-      {/* Protected Routes */}
-      <Route path="/" element={<ProtectedRoute />}>
-        <Route path="/" element={<Home />}>
-          {/* Master Data Routes */}
-          {MasterDataRoute()}
-          {/* Security Routes */}
-          {/* QMS */}
-          {QMSDataRoute()}
-          <Route
-            path="security"
-            element={
-              <ErrorBoundary>
-                <Suspense fallback={<>loading...</>}>
-                  <SecurityApp />
-                </Suspense>
-              </ErrorBoundary>
-            }
-          />
-          <Route
-            path="*"
-            element={
-              <div
-                style={{
-                  height: "90vh",
-                  width: "100%",
-                  display: "flex",
-                  flexDirection: "row",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <h2>Micro Frontend Not Found</h2>
-              </div>
-            }
-          />
-        </Route>
-      </Route>
-      <Route path="*" element={<h1>Page Not Found</h1>} />
-    </Route>
-  )
+	createRoutesFromElements(
+		<Route path="/">
+			{/* Public Routes */}
+			{/* <Route path="login" element={<Login />} /> */}
+			{/* Protected Routes */}
+			<Route path="/" element={<ProtectedRoute />}>
+				<Route path="/" element={<Layout />}>
+					{parentItem.map((parent: IParentItem) => (
+						<Route path={parent.path}>
+							{parent.children.map((child: IChildItem) => (
+								<Route
+									path={child.path}
+									element={child.page}
+									handle={{ crumb: () => child.label }}
+								/>
+							))}
+						</Route>
+					))}
+					{/* <Route path="/master" handle={{ crumb: () => "Master" }}>
+						<Route
+							index
+							element={
+								<>
+									<h1>master page 1</h1>
+								</>
+							}
+							handle={{ crumb: () => "Master Page 1" }}
+						/>
+						<Route
+							path="masterPage2"
+							element={
+								<>
+									<h1>master page 2</h1>
+								</>
+							}
+							handle={{ crumb: () => "Master Page 1" }}
+						/>
+					</Route> */}
+				</Route>
+			</Route>
+		</Route>,
+	),
+	{
+		future: {
+			v7_normalizeFormMethod: true, // Normalize formMethod fields to uppercase.
+			v7_partialHydration: true, // Enable partial hydration.
+			v7_skipActionErrorRevalidation: true, // Skip revalidation after 4xx/5xx action responses.
+			// v7_startTransition: false,              // Wrap state updates in React.startTransition.
+			v7_relativeSplatPath: true, // Change relative route resolution in Splat routes.
+			v7_fetcherPersist: true,
+		},
+	},
 );
+
+{
+	/* <Route
+						path="/"
+						//   element={<ProductionMonitoring />}
+						handle={{ crumb: () => "Home" }}>
+						<Route
+							path="/"
+							index
+							// element={<XpertPilot />}
+							handle={{ crumb: () => "Cantier's Xpert Pilot" }}
+						/>
+					</Route> */
+}
+

@@ -13,6 +13,9 @@
   "author": "Cantier Systems",
   "license": "MIT",
   "dependencies": {
+    "@fluentui/react-charts-preview": "^0.2.1",
+    "@fluentui/react-components": "^9.60.0",
+    "@fluentui/react-icons": "^2.0.279",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.28.0"
