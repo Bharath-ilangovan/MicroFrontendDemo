@@ -1,7 +1,7 @@
 import React, { FC, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { IChildItem } from "../data";
 import { CaretDownFilled } from "@fluentui/react-icons";
+import { IChildItem } from "src/services/SideBarMenu/SideBarMenu";
 
 const MenuGroup: FC<{
 	activePath: string;

@@ -1,5 +1,4 @@
 import React, { FC, useCallback, useEffect, useMemo, useState } from "react";
-import { IChildItem, IParentItem, parentItem } from "../data";
 import {
 	InputOnChangeData,
 	SearchBox,
@@ -12,6 +11,7 @@ import {
 	SearchRegular,
 } from "@fluentui/react-icons";
 import MenuGroup from "./MenuGroup";
+import { IChildItem, IParentItem, parentItem } from "src/services/SideBarMenu/SideBarMenu";
 
 interface ISideBar {
 	open: boolean;

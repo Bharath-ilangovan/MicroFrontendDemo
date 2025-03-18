@@ -5,14 +5,15 @@ import CmmsIconFC from "../../assets/sidebar/CmmsIconFC";
 import QmsIconFC from "../../assets/sidebar/QmsIconFC";
 import IiotIcon from "../../assets/sidebar/IIOTFC";
 import AiIconFC from "../../assets/sidebar/AiIconFC";
+import Demo from "src/pages/Demo";
 
 // Interface for child items
 export interface IChildItem {
 	label: string;
 	path: string;
 	page: ReactNode | JSX.Element;
-	icon?: FC<SVGProps<SVGSVGElement>>;
 	children?: IChildItem[];
+	title?: string;
 }
 
 // Interface for parent items
@@ -30,11 +31,12 @@ const MASTER_ITEMS: IChildItem[] = [
 		label: "Technician",
 		path: "cmms-setup/technician",
 		page: <h1>Technician</h1>,
+		title:'CMMS Setup'
 	},
 	{
 		label: "Reschedule Reasons",
 		path: "cmms-setup/reschedule-reasons",
-		page: <h1>Reschedule Reasons</h1>,
+		page: <Demo />,
 	},
 	{
 		label: "Work Order Progress Status",
@@ -106,8 +108,6 @@ const WIP_ITEMS: IChildItem[] = [
 		page: <h1>Rework Reasons</h1>,
 	},
 ];
-
-// Child Items (CMMS)
 const CMMS_ITEMS: IChildItem[] = [
 	{
 		label: "Machine Material Setup",
@@ -148,7 +148,7 @@ const CMMS_ITEMS: IChildItem[] = [
 ];
 
 // Parent Items
-export const parentItem: IParentItem[] = [
+const parentItem: IParentItem[] = [
 	{
 		icon: MasterIcon,
 		label: "Master",
@@ -199,3 +199,7 @@ export const parentItem: IParentItem[] = [
 		selectedIcon: AiIconFC,
 	},
 ];
+
+Object.freeze(parentItem);
+
+export { parentItem };
