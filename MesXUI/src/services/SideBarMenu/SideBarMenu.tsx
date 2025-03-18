@@ -6,6 +6,7 @@ import QmsIconFC from "../../assets/sidebar/QmsIconFC";
 import IiotIcon from "../../assets/sidebar/IIOTFC";
 import AiIconFC from "../../assets/sidebar/AiIconFC";
 import Demo from "src/pages/Demo";
+import Technician from "src/pages/Technician";
 
 // Interface for child items
 export interface IChildItem {
@@ -30,7 +31,7 @@ const MASTER_ITEMS: IChildItem[] = [
 	{
 		label: "Technician",
 		path: "cmms-setup/technician",
-		page: <h1>Technician</h1>,
+		page: <Technician/>,
 		title:'CMMS Setup'
 	},
 	{
