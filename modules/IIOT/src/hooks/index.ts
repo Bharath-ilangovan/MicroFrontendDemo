@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { QmsAppDispatch, QmsRootState } from "../store/store";
+import { IIOTAppDispatch,IIOTRootState } from "../store/store";
 
-export const useMasterDataAppDispatch = useDispatch.withTypes<QmsAppDispatch>();
-export const useMasterDataAppSelector = useSelector.withTypes<QmsRootState>();
+export const useIIOTAppDispatch = useDispatch.withTypes<IIOTAppDispatch>();
+export const useIIOTAppSelector = useSelector.withTypes<IIOTRootState>();

@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-export const qmsStore = configureStore({
+export const wipStore = configureStore({
   reducer: {
 
   },
@@ -8,6 +8,6 @@ export const qmsStore = configureStore({
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
-export type QmsRootState = ReturnType<typeof qmsStore.getState>;
+export type WipRootState = ReturnType<typeof wipStore.getState>;
 // Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
-export type QmsAppDispatch = typeof qmsStore.dispatch;
+export type WipAppDispatch = typeof wipStore.dispatch;
