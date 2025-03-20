@@ -110,7 +110,6 @@ export const router = createBrowserRouter(
 							))}
 						</Route>
 					))} */}
-
 					{parentItem.map((parent) => (
 						<Route key={parent.path} path={parent.path} handle={{ crumb: () => parent.label }}>
 							{generateRoutes(parent.children)}

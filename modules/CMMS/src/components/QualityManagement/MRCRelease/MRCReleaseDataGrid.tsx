@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { ProgressCard } from "CDS";
+// import { ProgressCard } from "CDS";
 
-interface Props {}
+interface Props { }
 interface IMRCReleaseDataGrid {
   label: string;
   value: number;
@@ -16,7 +16,8 @@ const MRCReleaseDataGrid = (props: Props) => {
   ]);
 
   return progressCards.map((items: IMRCReleaseDataGrid) => (
-    <ProgressCard status={items.label} statusItems={items.value} />
+    // <ProgressCard status={items.label} statusItems={items.value} />
+    <></>
   ));
 };
 
